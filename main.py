@@ -2,6 +2,7 @@ import requests
 import urllib.request
 import time
 from bs4 import BeautifulSoup
+from re import search
 
 url = 'https://www.lat-long.com/ListLocations-26-California-Beach.html' #TODO have to dynamically update the page
 response = requests.get(url)
@@ -10,7 +11,14 @@ print(response)
 soup = BeautifulSoup(response.text, "html.parser")
 print(soup.findAll('a'))
 
-for i in range (8,32):
+## get the range for the links
+paragraphs = []
+for i in range(0, len(a_list)):
+#    paragraphs.append(str(a_list[i]))       
+     if search("/Latitude-Longitude", str(a_list[i])):
+        paragraphs.append(i) 
+
+for i in range (paragraphs[0],paragraphs[0]+len(paragraphs)-1):
     one_a_tag = soup.findAll('a')[i]
     link = one_a_tag['href']
     print(link)
