@@ -42,3 +42,9 @@ for i in range (paragraphs[0],paragraphs[0]+len(paragraphs)):
 print(df)
 
 #TODO export the df
+
+#get the next page
+next_page = a_list[paragraphs[0]+len(paragraphs)+1]
+new_link = next_page['href']
+new_link="https://www.lat-long.com"+new_link
+print(new_link)
