@@ -10,6 +10,7 @@ print(response)
 
 soup = BeautifulSoup(response.text, "html.parser")
 print(soup.findAll('a'))
+a_list = soup.findAll('a')
 
 ## get the range for the links
 paragraphs = []
@@ -18,7 +19,7 @@ for i in range(0, len(a_list)):
      if search("/Latitude-Longitude", str(a_list[i])):
         paragraphs.append(i) 
 
-for i in range (paragraphs[0],paragraphs[0]+len(paragraphs)-1):
+for i in range (paragraphs[0],paragraphs[0]+len(paragraphs)):
     one_a_tag = soup.findAll('a')[i]
     link = one_a_tag['href']
     print(link)
